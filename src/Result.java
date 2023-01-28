@@ -1,6 +1,108 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class Result {
+
+
+    public long arrayManipulation(int n, int[][] queries) {
+        // Write your code here
+        int a,b,k;
+        long arr[] = new long[n+1];
+        for (int i=0; i<queries.length; i++) {
+            a = queries[i][0] - 1;
+            b = queries[i][1];
+            k = queries[i][2];
+            arr[a] += k;
+            arr[b] -= k;
+            System.out.println(Arrays.toString(arr));
+        }
+        long max = 0;
+        for (int i = 1; i < arr.length; i++) {
+            arr[i] += arr[i-1];
+            if (arr[i] > max)
+                max = arr[i];
+        }
+
+        return max;
+    }
+    public int[] matchingStrings(String[] stringList, String[] queries) {
+        // Write your code here
+        int[] result = new int[queries.length];
+        for (int i=0; i<queries.length; i++) {
+            int count = 0;
+            for (int j=0; j<stringList.length; j++) {
+                if (queries[i] == stringList[j]) {
+                    count++;
+                }
+            }
+            result[i] = count;
+        }
+        return result;
+
+    }
+
+    public List<Integer> matchingStrings(List<String> stringList, List<String> queries) {
+        // Write your code here
+        List<Integer> result = new ArrayList<>();
+        for (int i=0; i<queries.size(); i++) {
+            int count = 0;
+            for (int j=0; j<stringList.size(); j++) {
+                if (queries.get(i) == stringList.get(j)) {
+                    count++;
+                }
+            }
+            result.add(count);
+        }
+        return result;
+
+    }
+    public int[] rotateLeft(int d, int[] arr) {
+        // Write your code here
+        int p=0;
+        while (p<d) {
+            int temp = arr[0];
+            for (int i=0; i<arr.length-1; i++) {
+                arr[i] = arr[i+1];
+            }
+            arr[arr.length-1] = temp;
+            d--;
+        }
+        return arr;
+    }
+
+    public List<Integer> dynamicArray(int n, List<List<Integer>> queries) {
+        // Write your code here\
+        List<Integer> ans = new ArrayList<Integer>();
+        List<List<Integer>> arr = new ArrayList<List<Integer>>(n);
+        for (int i = 0; i < n; i++) {
+            arr.add(new ArrayList<Integer>());
+        }
+        int lastAnswer = 0;
+        for (List<Integer> query: queries) {
+            int queryType = query.get(0);
+            int x = query.get(1);
+            int y = query.get(2);
+            int idx = ((x ^ lastAnswer) % n);
+            if (queryType == 1) {
+                arr.get(idx).add(y);
+            } else {
+                lastAnswer = arr.get(idx).get(y % arr.get(idx).size());
+                ans.add(lastAnswer);
+            }
+        }
+        return ans;
+    }
+
+    public void printEvenOdds(int s,int l){
+        if(s%2 == 0){
+            System.out.print(s + " ");
+        }
+        if(s < l){
+            printEvenOdds(++s,l);
+        }
+        if(s%2 != 0){
+            System.out.print(s + " ");
+        }
+    }
 
     public int hourglassSum(int[][] arr) {
         // Write your code here
@@ -32,7 +134,6 @@ public class Result {
                     }
                 }
                 sums[y++] = sum;
-//                System.out.println(Arrays.toString(sums));
             }
 
         }
@@ -86,6 +187,7 @@ public class Result {
         }
         return i-1;
     }
+
     public int palindromeProduct() {
         int product;
         int maxProduct=0;
@@ -121,6 +223,7 @@ public class Result {
         }
         System.out.println("Prime factors of " + n + " are " + max);
     }
+
     public boolean prime(long n) {
         boolean flag = true;
         for(long i=2; i<=n/2; i++){
@@ -152,7 +255,6 @@ public class Result {
         return diffMade;
 
     }
-
 
     public String catAndMouse(int x, int y, int z) {
         int catA = (z - x) < 0 ? -1 * (z - x) : (z - x);
@@ -283,9 +385,7 @@ public class Result {
         }
     }
 
-
-    public static int[] removeTheElement(int[] arr, int index1, int index2)
-    {
+    public static int[] removeTheElement(int[] arr, int index1, int index2) {
         if (arr == null || index1 < 0 || index1 >= arr.length || index2 < 0 || index2 >= arr.length) {
             return arr;
         }
@@ -333,9 +433,6 @@ public class Result {
         }
         return noOfPairs;
     }
-
-
-
 
     public void dayOfProgrammer(int year) {
         // Write your code here
@@ -385,7 +482,7 @@ public class Result {
         }
     }
 
-        public static void breakingRecords ( int[] scores){
+    public static void breakingRecords ( int[] scores){
             // Write your code here
             int max = scores[0];
             int min = scores[0];
@@ -429,7 +526,7 @@ public class Result {
 
         }
 
-        public int getTotalX ( int[] a, int[] b){
+    public int getTotalX ( int[] a, int[] b){
             // Write your code here
             int count = 0;
             boolean iter = true;
@@ -471,7 +568,7 @@ public class Result {
             return count;
         }
 
-        public String kangaroo ( int x1, int v1, int x2, int v2){
+    public String kangaroo ( int x1, int v1, int x2, int v2){
             // Write your code here
             if ((x1 > x2 && v1 > v2) || (x2 > x1 && v2 > v1)) {
                 return "NO";
@@ -492,7 +589,7 @@ public class Result {
             }
         }
 
-        public void countApplesAndOranges ( int s, int t, int a, int b, int[] apples, int[] oranges){
+    public void countApplesAndOranges ( int s, int t, int a, int b, int[] apples, int[] oranges){
             // Write your code here
             int apple = 0;
             int count1 = 0;
@@ -517,7 +614,7 @@ public class Result {
             System.out.println(count2);
         }
 
-        public void gradingStudents ( int[] grades){
+    public void gradingStudents ( int[] grades){
             // Write your code here
             for (int i = 0; i < grades.length; i++) {
                 if (grades[i] >= 38) {

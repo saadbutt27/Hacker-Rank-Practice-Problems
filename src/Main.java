@@ -1,21 +1,43 @@
-
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        Patterns pattern = new Patterns();
-        pattern.solidRectangle(5,5);
-        pattern.hollowRectangle(5,5);
-        pattern.halfPyramid(5);
-        pattern.invertedHalfPyramid(5);
-        pattern.rotatedHalfPyramid180Degrees(5);
-        pattern.halfPyramidWithNumbers(5);
-        pattern.invertedHalfPyramidWithNumbers(5);
-        pattern.floydTriangle(5);
-        pattern.onOffTriangle(5);
-        pattern.solidRhombus(5);
-        pattern.numberPyramid(5);
-        pattern.palindromicNumberPyramid(5);
-        pattern.pyramid(5);
+        Result problem = new Result();
+//        int arr[][] = {{1,5,3}, {4,8,7}, {6,9,1}};
+//        System.out.println(problem.arrayManipulation(10, 3, arr));
+
+        int arr[][] = {{1,2,100}, {2,5,100}, {3,4,100}};
+        System.out.println(problem.arrayManipulation(5, arr));
+
+//        int arr[] = {1, 2, 3, 4, 5};
+//        System.out.println(Arrays.toString(arr));
+//        System.out.println(Arrays.toString(problem.rotateLeft(4, arr)));
+
+//        String stringList[] = {"aba", "baba", "aba", "xzxb"};
+//        String queries[] = {"aba", "xzxb", "ab"};
+//        List<String> stringList1 = new ArrayList<>();
+//        stringList1.add("aba");stringList1.add("baba");stringList1.add("aba");stringList1.add("xzxb");
+//        List<String> queries1 = new ArrayList<>();
+//        queries1.add("aba");queries1.add("xzxb");queries1.add("ab");
+//        System.out.println(stringList1);
+//        System.out.println(queries1);
+//        System.out.println( "List "+(problem.matchingStrings(stringList1, queries1)).toString());
+
+
+//        Patterns pattern = new Patterns();
+//        pattern.solidRectangle(5,5);
+//        pattern.hollowRectangle(5,5);
+//        pattern.halfPyramid(5);
+//        pattern.invertedHalfPyramid(5);
+//        pattern.rotatedHalfPyramid180Degrees(5);
+//        pattern.halfPyramidWithNumbers(5);
+//        pattern.invertedHalfPyramidWithNumbers(5);
+//        pattern.floydTriangle(5);
+//        pattern.onOffTriangle(5);
+//        pattern.solidRhombus(5);
+//        pattern.numberPyramid(5);
+//        pattern.palindromicNumberPyramid(5);
+//        pattern.pyramid(5);
 
 
         /*
